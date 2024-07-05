@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}" >
+</head>
+<body>
+    <h1>Guess the Number!</h1>
+    {% if message %}
+        <p id="message" class="message">{{ message }}</p>
+    {% endif %}
+    <form action="/guess" method="post">
+        <label for="guess">Enter your guess (1-100):</label>
+        <input type="number" id="guess" name="guess" min="1" max="100" required>
+        <button type="submit">Guess</button>
+    </form>
+</body>
+<script src="{{ url_for('static',filename='js/script.js')}}"></script>
+</html>
